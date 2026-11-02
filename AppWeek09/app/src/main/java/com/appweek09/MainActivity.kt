@@ -47,14 +47,14 @@ class MainActivity : AppCompatActivity() {
     private var currentMode = AppMode.STUDENT_LIST
 
     companion object {
-        private const val TAG = "KotlinWeek07App"
+        private const val TAG = "KotlinWeek09App"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Log.d(TAG, "onCreate: AppWeek07 started")
+        Log.d(TAG, "onCreate: AppWeek09 started")
 
         initializeData()
         setupViews()
@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initializeData() {
-        studentList = ArrayList()
+        studentList = ArrayList() // lateinit
         cartItemList = ArrayList()
         taskList = ArrayList()
 
@@ -120,7 +120,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupListeners() {
         // Mode selection listeners
-        radioGroup.setOnCheckedChangeListener { _, checkedId ->
+        radioGroup.setOnCheckedChangeListener { _, checkedId -> //checkedId는 변수라 아무이름
             when (checkedId) {
                 R.id.radioStudentList -> setMode(AppMode.STUDENT_LIST)
                 R.id.radioShoppingCart -> setMode(AppMode.SHOPPING_CART)
